@@ -13,7 +13,11 @@ jobs:
       security-events: write
       actions: read
       contents: read
-
+    
+    strategy:
+      fail-fast: false
+      matrix:
+        language: ['javascript', 'python']
      
       
     steps:
@@ -25,5 +29,4 @@ jobs:
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v1
-        with:
-          languages: cpp, csharp, python, java
+   
